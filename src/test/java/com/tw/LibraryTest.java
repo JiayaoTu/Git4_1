@@ -10,6 +10,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class LibraryTest {
+
     @Test
     public void testSomeLibraryMethod() {
         Library classUnderTest = new Library();
@@ -29,4 +30,20 @@ public class LibraryTest {
 
     }
 
+    @Test
+    public void testAddStudent() {
+        Library library=new Library();
+        String input1="张三,1,22,33,44,55";
+        String output1="学生张三的成绩被添加";
+
+        String input2="李四,2,33,44,55,e";
+        String output2="请按正确的格式输入（格式：姓名, 学号, 学科: 成绩, ...）";
+
+        Score score=new Score();
+        ScoreTool scoreTool=new ScoreTool();
+
+        assertEquals(output1,library.AddStudent(input1,score,scoreTool));
+        assertEquals(output2,library.AddStudent(input2,score,scoreTool));
+
+    }
 }
